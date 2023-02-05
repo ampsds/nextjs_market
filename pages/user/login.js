@@ -1,3 +1,4 @@
+import Head from "next/head"
 import { useState } from 'react'
 
 const Login = () => {
@@ -7,7 +8,7 @@ const Login = () => {
   const handleSubmit = async(e) => {
     e.preventDefault()
     try{
-      const response = await fetch("http://localhost:3000/api/user/login",{
+      const response = await fetch("https://nextjs-market.vercel.app//api/user/login",{
         method:"POST",
         headers:{
           "Accept":"application/json",
@@ -29,7 +30,8 @@ const Login = () => {
 
   return (
     <div>
-      <h1>ログイン</h1>
+      <Head><title>ログイン</title></Head>
+      <h1 className="page-title">ログイン</h1>
       <form onSubmit={handleSubmit}>
         <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="メールアドレス" required />
         <input value={password} onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder="パスワード" required />

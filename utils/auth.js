@@ -9,12 +9,14 @@ const auth = (handler) => {
     }
     //const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vYnVuYWdhQG1haWwuY29tIiwiaWF0IjoxNjc1MDgzNDUxLCJleHAiOjE2NzUxNjYyNTF9.GccTfPNnBOQNvBtUJsZqvtO0wDpZko0D_XPlDaBnTKw"
     const token = await req.headers.authorization.split(" ")[1]
+    console.log(token)
 
     if(!token){
       return res.status(401).json({message: "トークンがありません"})
     }
     try{
       const decoded = jwt.verify(token, secret_key)
+      console.log(decoded)
       req.body.email = decoded.email
       return handler(req,res)
     }catch(err){
