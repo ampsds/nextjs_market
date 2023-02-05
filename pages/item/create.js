@@ -12,7 +12,7 @@ const CreateItem = () => {
   const handleSubmit = async(e) => {
     e.preventDefault
     try{
-      const response = await fetch("https://nextjs-market.vercel.app//api/item/create",{
+      const response = await fetch("https://nextjs-market.vercel.app/api/item/create",{
         method: "POST",
         headers: {
           "Accept":"application/json",
@@ -42,7 +42,7 @@ const CreateItem = () => {
         <Head><title>アイテム作成</title></Head>
         <h1 className="page-title">アイテム作成</h1>
         <ImgInput setImage={setImage} />
-          <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" name="title" placeholder="アイテム名" required />
           <input value={price} onChange={(e) => setPrice(e.target.value)}  type="text" name="price" placeholder="価格" required />
           <input value={image} onChange={(e) => setImage(e.target.value)}  type="text" name="image" placeholder="画像" required />
