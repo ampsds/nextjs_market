@@ -13,7 +13,7 @@ const ReadAllItems = (props) => {
             <a className="card">
               <Image src={item.image} width="750" height="250" alt="item-image" />
               <div className="texts-area">
-                <h2>\{item.price}</h2>
+                <h2>¥{item.price}</h2>
                 <h3>{item.title}</h3>
                 <p>{item.description.substring(0,80)}...</p>
               </div>
